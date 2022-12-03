@@ -69,14 +69,16 @@ void print(Node *tail)
     cout << endl;
 }
 
-bool detectLoop(Node *tail)
+//sc O(n), tc(n)
+
+bool detectLoop(Node *tail) //detect loop in a cicular linked list,and we know that one cycle is present in cll.
 {
     if(tail == NULL)
     {
         return false;
     }
 
-    map <Node*,bool> visited;   //create a map Node is key, bool is value
+    map <Node*,bool> visited; //create a map: Node is key, bool is value.
     Node *temp = tail;
 
     while (temp != NULL)
@@ -84,6 +86,7 @@ bool detectLoop(Node *tail)
         //cycle is present 
         if(visited[temp] == true)
         {
+            cout << "Cycle is at: " << temp->data << endl;
             return true;
         }
 
