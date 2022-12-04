@@ -43,7 +43,7 @@ Node *mergeList(Node *head1, Node *head2)  //by fraz
         return head1;
 
     Node *ans = new Node(-1);
-    Node *tail = ans;  // tail is important otherwise only last 2 node is print
+    Node *tail = ans;                   // tail is important otherwise only last 2 node is print
 
     while (head1 != NULL && head2 != NULL)
     {
