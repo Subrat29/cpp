@@ -36,7 +36,7 @@ void insertHead(Node *&head, int d)
 void print(Node *head)
 {
     Node *temp = head;
-    while (head != NULL)
+    while (temp != NULL)
     {
         cout << temp->data << " ";
         temp = temp->next;
@@ -46,15 +46,23 @@ void print(Node *head)
 
 Node* reverseList(Node *head)
 {
-    Node *c = head, *n = NULL;
-
-    while (c != 0)
+    if(head == NULL && head->next == NULL)
     {
-        n = c->next;
-        c->next = c->prev;
-        c->prev = n;
-        c = n;
+        return head;
     }
+
+    Node *temp = NULL;
+    Node *curr = head;
+
+    while (curr != NULL)
+    {
+        temp = curr->prev;
+        curr->prev = curr->next;
+        curr->next = temp;
+        curr = curr->prev;
+    }
+    
+    head = temp->prev;
     return head;
 }
 
@@ -69,8 +77,8 @@ int main()
     insertHead(head, 5);
     print(head);
 
-    Node *rev = reverseList(head);
-    print(rev);
+    // Node *rev = reverseList(head);
+    print(reverseList(head));
 
     return 0;
 }

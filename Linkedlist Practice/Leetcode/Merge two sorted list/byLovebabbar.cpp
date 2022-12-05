@@ -36,7 +36,7 @@ void print(Node *head)
 
 Node *solve(Node *first, Node *second)
 {
-    // If only 1 elem is present in first list
+    // If only 1 node is present in first list then points its next to entire second list
     if (first->next == NULL)
     {
         first->next = second;
@@ -65,6 +65,7 @@ Node *solve(Node *first, Node *second)
         }
         else
         {
+            //go 1 step ahead in first list
             curr1 = next1;
             next1 = next1->next;
         }

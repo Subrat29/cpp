@@ -47,7 +47,7 @@ Node *reverseList(Node *head)
         c = n;
         if (n != NULL)
         {
-            n = n->next;
+            n = n->next;   // Dry Run: if i am not using this then it work but in very last when n = null then n = n->next gives error 
         }  
     }
     return p;

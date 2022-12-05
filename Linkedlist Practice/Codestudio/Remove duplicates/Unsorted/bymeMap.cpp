@@ -42,7 +42,24 @@ Node *removeDuplicates(Node *head)
         return NULL;
     }
 
-    // not done now
+    Node *prev = NULL, *curr = head;
+    map <Node*,bool> visit;
+
+    while (curr != NULL && curr->next != NULL)
+    {
+        if(visit[curr] == true)
+        {
+            prev->next = curr->next;
+            delete curr;
+        }
+        else
+        {
+            visit[curr] = true;
+            prev = curr;
+        }
+        curr = prev->next;
+    }
+    return head;
 }
 
 int main()

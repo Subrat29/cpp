@@ -33,51 +33,60 @@ void print(Node *head)
     cout << endl;
 }
 
-void isPalindrome(Node *head)
+bool isPalindrome(Node *head, int a[], int b[], int l)   // tc: O(n), sc: O(n)
 {
-    int a[100], b[100], i=0;
+    int i=0;
     Node *temp = head;
+
     while (temp != NULL)
     {
         a[i++] = temp->data;
         temp = temp->next;
-    }                                               
+    } 
 
-    int l = sizeof(a)/sizeof(a[0])-1;
-    cout << "L : " << l << endl;
-    for(int i=0; i<=l; i++)
+    for(int i=0; i<l; i++)
     {
-        b[l-i] = a[i];
-    }
+        b[l-i-1] = a[i];
+    }              
 
-    int flag;
-    for(int i=0; i<=l; i++)
+    for(int i=0; i<l; i++)
     {
-        if(b[i] == a[i])
+        if(b[i] != a[i])
         {
-        cout << "a[i]: " << a[i] << "  ";
-        cout << "b[i]: " << b[i] << endl;
-        flag = 0;
+            return false;
         }
-        else
-        flag = 1;
     }
+    return true;
+}
 
-    if(flag == 0)
-    cout << "Palindrome h bro";
-    else
-    cout << "palindrome nhi h";
+int getlength(Node *head)
+{
+    Node *temp = head;
+    int cnt = 0;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+    return cnt;
 }
 
 int main()
 {
+    int a[50], b[50];
     Node *head = NULL;
     InsertAthead(head, 1);
     InsertAthead(head, 2);
+    InsertAthead(head, 2);
     InsertAthead(head, 1);
+
+    int l = getlength(head);
     print(head);
 
-    isPalindrome(head);
+    if(isPalindrome(head, a, b, l))
+    cout << "yes, palindrome";
+    else
+    cout << "Not palindrome";
 
     return 0;
 }

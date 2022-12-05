@@ -35,31 +35,31 @@ void print(Node *&head)
     cout << endl;
 }
 
-Node *removeDuplicates(Node *head) 
+// Is ke syntax aage padna h so no tense here bro
+Node *removeDuplicates(Node *head)
 {
     if (head == NULL)
     {
         return NULL;
     }
 
-    Node *prev = NULL, *curr = head;
-    map <Node*,bool> visit;
+    unordered_set<int> seen; 
+    Node *prev = NULL;
+    Node *curr = head;
 
-    while (curr != NULL && curr->next != NULL)
+    while (curr != NULL)  //we not use curr->next != NULL bec if curr is on last node but last node is duplicate then it cant come in loop to delete node bc of condn.
     {
-        if(visit[curr] == true)
+        if (seen.find(curr->data) != seen.end())
         {
-            Node *del = curr;
             prev->next = curr->next;
-            curr = curr->next;
-            delete del;
+            delete curr;
         }
         else
         {
-            visit[curr] = true;
+            seen.insert(curr->data);
             prev = curr;
-            curr = curr->next;
         }
+        curr = prev->next;
     }
     return head;
 }
