@@ -43,18 +43,18 @@ Node *removeDuplicates(Node *head)
     }
 
     Node *prev = NULL, *curr = head;
-    map <Node*,bool> visit;
+    map <int,bool> visit;                       // map of int and bool
 
     while (curr != NULL && curr->next != NULL)
     {
-        if(visit[curr] == true)
+        if(visit[curr->data] == true)            // i did this visit[curr]->data 
         {
             prev->next = curr->next;
             delete curr;
         }
         else
         {
-            visit[curr] = true;
+            visit[curr->data] = true;
             prev = curr;
         }
         curr = prev->next;

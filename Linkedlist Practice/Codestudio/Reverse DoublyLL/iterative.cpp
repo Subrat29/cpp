@@ -44,9 +44,9 @@ void print(Node *head)
     cout << endl;
 }
 
-Node* reverseList(Node *head)
+Node* reverseList(Node *head)  //tc: O(n) sc: O(1)
 {
-    if(head == NULL && head->next == NULL)
+    if(head == NULL || head->next == NULL)
     {
         return head;
     }
@@ -54,7 +54,7 @@ Node* reverseList(Node *head)
     Node *temp = NULL;
     Node *curr = head;
 
-    while (curr != NULL)
+    while (curr != NULL)                    //silly mistake here curr = head
     {
         temp = curr->prev;
         curr->prev = curr->next;

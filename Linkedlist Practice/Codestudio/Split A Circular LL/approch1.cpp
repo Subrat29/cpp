@@ -84,11 +84,12 @@ void splitCircularList(Node *&head)
 
     Node *second = temp->next; 
     tail->next = temp->next;
-    print(second);
 
     Node *first = head;
     temp->next = head;
+    
     print(first);
+    print(second);
 }
 
 

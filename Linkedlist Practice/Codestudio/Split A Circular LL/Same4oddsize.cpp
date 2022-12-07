@@ -1,4 +1,4 @@
-    #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node
@@ -68,21 +68,26 @@ void print(Node *head)
 
 void splitCircularList(Node *&head)
 {
-    Node *temp = head, *tail = head;
+    Node *temp = head, *tail;
+    int cnt = 0;
+    do
+    {
+        cnt++;
+        tail = temp;       //ye dry run pr hi ayega bro
+        temp = temp->next;
+    } while (temp != head);
 
-    while (tail->next->next != head)
+    for(int i=1; i<cnt/2; i++)
     {
         temp = temp->next;
-        tail = tail->next->next;
     }
-    tail = tail->next;
 
     Node *second = temp->next; 
     tail->next = temp->next;
 
     Node *first = head;
     temp->next = head;
-    
+
     print(first);
     print(second);
 }
@@ -97,6 +102,7 @@ int main()
     insertion(head, 3, 6);
     insertion(head, 6, 7);
     insertion(head, 7, 8);
+    insertion(head, 8, 9);
     print(head);
 
     splitCircularList(head);
