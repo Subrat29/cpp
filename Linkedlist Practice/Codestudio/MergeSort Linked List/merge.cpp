@@ -101,22 +101,21 @@ Node *Mergesort(Node *head)
         return head;
     }
 
-    //get mid
+    //Step 1: get mid & break list in 2 halves 
     Node *mid = getMid(head);
-
-    //break list in 2 halves
-    // Node *right = head;
+  
+    // Node *right = head;                            //when i reverese right & left then it not works.
     // Node *left = mid->next;
 
     Node *left = head;
     Node *right = mid->next;
     mid->next = NULL;
 
-    //sort these 2 halves by recursion
-    right = Mergesort(right);                           //when i reverese right & left then it not works.
+    //Step 2: sort these 2 halves by recursion
+    right = Mergesort(right);                           
     left = Mergesort(left);
 
-    //merge these 2 halves
+    //Step 3: merge these 2 halves
     Node *result = merge(left, right);
 
     return result;
