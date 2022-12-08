@@ -23,7 +23,7 @@ public:
     {
         if (size - top > 1) // >1 not >0
         {
-            top++;
+            top++;               //sequence matter, baad me top++ then condn is >=1 (dry run)
             arr[top] = element;
         }
         else
@@ -81,20 +81,19 @@ int main()
     st.push(3);    
     st.push(4);
     st.push(5);
+
+    //now push when size is full
     st.push(6);
     st.push(7);
 
+    //print top element
     cout << st.peek() << endl;
 
+    //pop top element & then print top element
     st.pop();
     cout << st.peek() << endl;
 
-    st.pop();
-    cout << st.peek() << endl;
-
-    st.pop();
-    cout << st.peek() << endl;
-
+    //check stack is empty or not
     if(st.isEmpty())
     {
         cout << "Stack is empty" << endl;
@@ -102,6 +101,14 @@ int main()
     else
     {
         cout << "Not Empty" << endl;
+    }
+
+    //print stack
+    while (!st.isEmpty())
+    {
+        int p = st.peek();
+        st.pop();
+        cout << p << " ";
     }
     
     return 0;
