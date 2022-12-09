@@ -76,17 +76,25 @@ Node *merge(Node *left, Node *right)
 
         temp = temp->next;
     }
+    
+    // if (left == NULL)
+    // {
+    //     temp->next = right;
+    // }
 
-    while (left == NULL)
-    {
-        temp->next = right;
-        temp = temp->next;
-    }
+    // if (right == NULL)
+    // {
+    //     temp->next = left;
+    // }
 
-    while (right == NULL)
+    if (left != NULL)
     {
         temp->next = left;
-        temp = temp->next;
+    }
+
+    if (right != NULL)
+    {
+        temp->next = right;
     }
 
     return ans;
@@ -94,6 +102,11 @@ Node *merge(Node *left, Node *right)
 
 Node *Mergesort(Node *head)
 {
+    //base case
+    if(head == NULL && head->next == NULL)
+    {
+        return head;
+    }
 
     //get mid
     Node *mid = getMid(head);

@@ -54,3 +54,8 @@ Node* flattenLinkedList(Node* head)   //if not get then watch video and dry run 
 
     return merge(head, flattenLinkedList(head->next));  //ye peeche bhejta jayega & hm peeche se merge krna start krege
 }
+
+int main()
+{
+    return 0;
+}

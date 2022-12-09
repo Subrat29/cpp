@@ -49,8 +49,6 @@ Node* flattenLinkedList(Node* head)
         return head;
     }
 
-    // return merge(head, flattenLinkedList(head->next));
-
     // Recur on next node
     head->next = flattenLinkedList(head->next);
 
@@ -58,4 +56,9 @@ Node* flattenLinkedList(Node* head)
     head = merge(head, head->next);
 
     return head;
+}
+
+int main()
+{
+    return 0;
 }
