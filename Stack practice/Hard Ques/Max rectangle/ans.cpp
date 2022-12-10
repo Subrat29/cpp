@@ -15,7 +15,7 @@ vector<int> nextSmallerElement(int *arr, int n)
         {
             s.pop();
         }
-        // ans is stack ka top
+
         ans[i] = s.top();
         s.push(i);
     }
@@ -35,7 +35,7 @@ vector<int> prevSmallerElement(int *arr, int n)
         {
             s.pop();
         }
-        // ans is stack ka top
+
         ans[i] = s.top();
         s.push(i);
     }
@@ -44,15 +44,13 @@ vector<int> prevSmallerElement(int *arr, int n)
 
 int largestRectangleArea(int *heights, int n)
 {
-    // int n= heights.size();
-
     vector<int> next(n);
     next = nextSmallerElement(heights, n);
 
     vector<int> prev(n);
     prev = prevSmallerElement(heights, n);
 
-    int area = INT_MIN;
+    int area = INT_MIN;                //mistake i use INT_MAX then what consequences??
     for (int i = 0; i < n; i++)
     {
         int l = heights[i];
@@ -61,7 +59,9 @@ int largestRectangleArea(int *heights, int n)
         {
             next[i] = n;
         }
+
         int b = next[i] - prev[i] - 1;
+
         int newArea = l * b;
         area = max(area, newArea);
     }
@@ -70,18 +70,17 @@ int largestRectangleArea(int *heights, int n)
 
 int maxArea(int M[MAX][MAX], int n, int m)
 {
-
     // compute area for first row
-    int area = largestRectangleArea(M[0], m);
+    int area = largestRectangleArea(M[0], m);      // i use n inplace m
 
-    for (int i = 1; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         for (int j = 0; j < m; j++)
         {
-
-            // row udpate: by adding previous row's value
+            // row update: by adding prev row value
             if (M[i][j] != 0)
                 M[i][j] = M[i][j] + M[i - 1][j];
+
             else
                 M[i][j] = 0;
         }
@@ -92,26 +91,18 @@ int maxArea(int M[MAX][MAX], int n, int m)
     return area;
 }
 
-// { Driver Code Starts.
 int main()
 {
-    int T;
-    cin >> T;
-
     int M[MAX][MAX];
 
-    while (T--)
-    {
-        int n, m;
-        cin >> n >> m;
+    int n = 4;
+    int m = 4;
+    M[n][m] = {{0, 1, 1, 0},
+               {0, 0, 0, 1},
+               {1, 1, 0, 1},
+               {1, 1, 1, 0}};
 
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                cin >> M[i][j];
-            }
-        }
-        cout << maxArea(M, n, m) << endl;
-    }
+    cout << maxArea(M, n, m) << endl;
+
+    return 0;
 }
