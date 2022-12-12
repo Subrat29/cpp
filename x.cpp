@@ -1,24 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int findCelebrity(int mat[4][4], int n) 
+int findCelebrity(int mat[4][4], int n)
 {
-    // bool celeb = false;                  iski koi jarut nhi seedhe hi kr do 
+    bool celeb = false;
     for (int i = 0; i < n; i++)
     {
         int cnt = 0;
         for (int j = 0; j < n; j++)
         {
-            if ((mat[i][j] == 0) && (i != j && mat[j][i] == 1))
+            if (i != j && mat[i][j] == 0 && i != j && mat[j][i] == 1)
             {
                 cnt++;
+                cout << cnt ;
             }
         }
-
-        if (cnt == n-1)
-        {
+        if (cnt == n - 1)
+        //     celeb = true;
+        // if (celeb == true)
             return i;
-        }
     }
     return -1;
 }
@@ -30,8 +30,7 @@ int main()
                      {0, 0, 0, 1},
                      {1, 1, 0, 1},
                      {1, 1, 1, 0}};
-
     int ans = findCelebrity(mat, n);
-    cout << ans;
+    cout << ans << endl;
     return 0;
 }

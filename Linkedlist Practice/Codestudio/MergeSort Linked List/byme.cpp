@@ -77,24 +77,14 @@ Node *merge(Node *left, Node *right)
         temp = temp->next;
     }
     
-    // if (left == NULL)
-    // {
-    //     temp->next = right;
-    // }
-
-    // if (right == NULL)
-    // {
-    //     temp->next = left;
-    // }
-
-    if (left != NULL)
-    {
-        temp->next = left;
-    }
-
-    if (right != NULL)
+    if (left == NULL)
     {
         temp->next = right;
+    }
+
+    if (right == NULL)
+    {
+        temp->next = left;
     }
 
     return ans;
@@ -103,7 +93,7 @@ Node *merge(Node *left, Node *right)
 Node *Mergesort(Node *head)
 {
     //base case
-    if(head == NULL && head->next == NULL)
+    if(head == NULL || head->next == NULL)              //silly Mistake: use &&
     {
         return head;
     }

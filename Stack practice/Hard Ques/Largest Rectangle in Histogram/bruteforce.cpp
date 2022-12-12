@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int getMaxArea(int hist[], int n)
+int getMaxArea(int hist[], int n)   //this works but shows tle in large test case so pls optimize it.
 {
     int Newarea = 0;
     int area = 0;
@@ -10,20 +10,18 @@ int getMaxArea(int hist[], int n)
         int l = i;
         int r = i;
 
-        while (hist[l] > hist[i] && l > 0)
+        while (l >= 0 && hist[l] >= hist[i] )
         {
             l--;
         }
 
-        while (hist[r] > hist[i] && r < n )
+        while ( r < n && hist[r] >= hist[i] )
         {
             r++;
         }  
 
-        Newarea = (r-l+1) * hist[i];
+        Newarea = (r-l-1) * hist[i];
         area = max(Newarea, area);
-        cout << "r : " << r << "   l : " << l << endl;
-        cout << "New Area : " << Newarea << "   Max Area : " << area << endl << endl;
     }
 
     return area;

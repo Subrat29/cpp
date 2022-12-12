@@ -57,7 +57,7 @@ Node *merge(Node *left, Node *right)
         return left;
     }
 
-    Node *ans = new Node(-1);
+    Node *ans = new Node(left->data);
     Node *temp = ans;
 
     //merge 2 sorted linked list
@@ -104,11 +104,12 @@ Node *Mergesort(Node *head)
     //Step 1: get mid & break list in 2 halves 
     Node *mid = getMid(head);
   
-    // Node *right = head;                            //when i reverese right & left then it not works.
+    // Node *right = head;                            //when i reverese right & left then it works well.
     // Node *left = mid->next;
 
     Node *left = head;
     Node *right = mid->next;
+
     mid->next = NULL;
 
     //Step 2: sort these 2 halves by recursion

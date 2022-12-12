@@ -50,7 +50,7 @@ int largestRectangleArea(int *heights, int n)
     vector<int> prev(n);
     prev = prevSmallerElement(heights, n);
 
-    int area = INT_MIN;                //mistake i use INT_MAX then what consequences??
+    int area = INT_MIN; // mistake i use INT_MAX then what consequences??
     for (int i = 0; i < n; i++)
     {
         int l = heights[i];
@@ -71,9 +71,9 @@ int largestRectangleArea(int *heights, int n)
 int maxArea(int M[MAX][MAX], int n, int m)
 {
     // compute area for first row
-    int area = largestRectangleArea(M[0], m);      // i use n inplace m
+    int area = largestRectangleArea(M[0], m); // i use n inplace m
 
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i < n; i++) // Mistake: i = 0
     {
         for (int j = 0; j < m; j++)
         {
@@ -97,7 +97,7 @@ int main()
 
     int n = 4;
     int m = 4;
-    M[n][m] = {{0, 1, 1, 0},
+    M[n][m] = {{0, 1, 1, 0},                                     //idhr chull kat rhi h baki sab to theek h
                {0, 0, 0, 1},
                {1, 1, 0, 1},
                {1, 1, 1, 0}};
