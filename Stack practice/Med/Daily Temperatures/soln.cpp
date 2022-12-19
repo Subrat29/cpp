@@ -4,7 +4,6 @@ using namespace std;
 vector<int> nextSmallerElement(vector<int> arr, int n)
 {
     stack<int> s;
-    s.push(-1);
 
     vector<int> ans(n);
 
@@ -12,21 +11,28 @@ vector<int> nextSmallerElement(vector<int> arr, int n)
     {
         int curr = arr[i];
 
-        while (s.top() >= curr)
+        while (s.size() != 0 && arr[s.top()] <= curr)
         {
             s.pop();
         }
 
-        // ans.push_back(s.top());   i did this which is wrong
-        ans[i] = s.top();
-        s.push(curr);
+        if (s.size() == 0 || arr[s.top()] <= curr)
+        {
+            ans[i] = 0;
+            s.push(i);
+        }
+        else
+        {
+            ans[i] = s.top() - i;
+            s.push(i);
+        }
     }
     return ans;
 }
 
 int main()
 {
-    vector<int> arr = {2, 1, 4, 3};
+    vector<int> arr = {73, 74, 75, 71, 69, 72, 76, 73};
     int n = arr.size();
 
     vector<int> ans = nextSmallerElement(arr, n);

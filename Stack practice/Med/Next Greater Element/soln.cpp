@@ -12,12 +12,11 @@ vector<int> nextSmallerElement(vector<int> arr, int n)
     {
         int curr = arr[i];
 
-        while (s.top() >= curr)
+        while (s.top() <= curr && s.top() != -1)
         {
             s.pop();
         }
 
-        // ans.push_back(s.top());   i did this which is wrong
         ans[i] = s.top();
         s.push(curr);
     }
@@ -26,7 +25,7 @@ vector<int> nextSmallerElement(vector<int> arr, int n)
 
 int main()
 {
-    vector<int> arr = {2, 1, 4, 3};
+    vector<int> arr = {1, 3, 2, 4};
     int n = arr.size();
 
     vector<int> ans = nextSmallerElement(arr, n);
