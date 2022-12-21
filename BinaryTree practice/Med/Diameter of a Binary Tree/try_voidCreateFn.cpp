@@ -17,7 +17,7 @@ public:
     }
 };
 
-void createTree(Node *&root)   //I TRY THIS but output: 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1   (-1 is present bc NULL not return)
+void createTree(Node *&root)   //I TRY THIS but o/p: 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1   (-1 is present bc NULL not return)
 {
     cout << "Enter data: " << endl;
     int data;
@@ -89,22 +89,22 @@ int diameter(Node *root)
     if(root == NULL)
     return 0;
 
-    int op1 = diameter(root->left);
-    int op2 = diameter(root->right);
-    int op3 = height(root->left) + height(root->right) + 1;
+    int d1 = diameter(root->left);
+    int d2 = diameter(root->right);
+    int d3 = height(root->left) + height(root->right) + 1;
 
-    int ans = max(op1, op2, op3);
+    int ans = max(d1, max(d2, d3) );
     return ans;
 }
 
-int main() // Input: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
+int main()        //Input: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 {
     Node *root = NULL;
     createTree(root);
     levelorderTraversal(root);
 
-    cout << height(root) << endl;
-    // cout << diameter(root) << endl;
+    cout << "Diameter of Tree: " << diameter(root) << endl;
+    // Actual diameter is 5, it gives 7 which is wrong bc it includes -1 also in diameter
 
     return 0;
 }

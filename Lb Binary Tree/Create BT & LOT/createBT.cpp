@@ -37,7 +37,7 @@ Node *createTree(Node *root)
     return root;
 }
 
-// void levelorderTraversal(Node *root)       // Output:    1 3 5 7 11 17
+// void levelorderTraversal(Node *root)       // Output: 1 3 5 7 11 17
 // {
 //     queue <Node*> q;
 //     q.push(root);

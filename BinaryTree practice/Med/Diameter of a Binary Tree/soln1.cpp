@@ -17,7 +17,7 @@ public:
     }
 };
 
-void createTree(Node *&root)   //I TRY THIS but output: 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1   (-1 is present bc NULL not return)
+Node *createTree(Node *&root)   //I TRY THIS but output: 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1   (-1 is present bc NULL not return)
 {
     cout << "Enter data: " << endl;
     int data;
@@ -26,11 +26,13 @@ void createTree(Node *&root)   //I TRY THIS but output: 1 3 5 7 11 17 -1 -1 -1 -
 
     if (data == -1)
     {
-        return;
+        return NULL;
     }
 
-    createTree(root->left);
-    createTree(root->right);
+    root->left = createTree(root->left);
+    root->right = createTree(root->right);
+
+    return root;
 }
 
 void levelorderTraversal(Node *root) 
@@ -93,18 +95,17 @@ int diameter(Node *root)
     int op2 = diameter(root->right);
     int op3 = height(root->left) + height(root->right) + 1;
 
-    int ans = max(op1, op2, op3);
+    int ans = max(op1, max(op2, op3) );
     return ans;
 }
 
 int main() // Input: 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 {
     Node *root = NULL;
-    createTree(root);
+    root =  createTree(root);
     levelorderTraversal(root);
 
-    cout << height(root) << endl;
-    // cout << diameter(root) << endl;
+    cout << "Diameter of Tree: " << diameter(root) << endl;
 
     return 0;
 }
