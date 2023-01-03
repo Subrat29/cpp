@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
 vector<int> leftSmaller(int A[], int n) // prev smaller
 {
@@ -47,7 +47,7 @@ int findMaxDiff(int A[], int n)
     int ans = 0, dif = 0;
     for (int i = 0; i < n; i++)
     {
-        dif = left[i] - right[i];
+        dif = abs(left[i] - right[i]);           //forget abs
         ans = max(ans, dif);
     }
     return ans;

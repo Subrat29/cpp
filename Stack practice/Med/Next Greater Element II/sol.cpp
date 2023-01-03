@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
-vector<int> nextGreaterElements(vector<int> &v)
+vector<int> nextGreaterElements(vector<int> v)
 {
     stack<int> s;
     s.push(-1);

@@ -1,21 +1,28 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> //Mainly, peeche kitne days the jiske stock price aaj jo h usse kam the, or prev greater elem
 using namespace std;
 
 vector<int> calculateSpan(int price[], int n)
 {
     stack<int> s;
-    s.push(0);
     vector<int> ans(n);
 
     for (int i = 0; i < n; i++)
     {
-        while (s.top() != 0 && price[s.top()] <= price[i])
+        while (!s.empty() && price[s.top()] <= price[i])
         {
             s.pop();
         }
 
-        ans[i] = i - s.top() + 1;
-        s.push(i+1);
+        if (s.empty())                // if koi bhi elem greater nhi mila, stack empty hone tk bhi then do this
+        {
+            ans[i] = i + 1;           // ans[i] = 1; me ye kr rha h 
+        }
+        else                          // if greater elem mil gya then do this
+        {
+            ans[i] = i - s.top();
+        }
+
+        s.push(i);
     }
     return ans;
 }

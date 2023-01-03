@@ -7,7 +7,7 @@ public:
     int data;
     Node *next;
 
-    // constructor
+    //constructor
     Node(int d)
     {
         this->data = d;
@@ -28,27 +28,27 @@ Node *findMiddle(Node *head)
 
     while (fast->next != NULL)
     {
-        slow = head;
-        fast = head->next;
+        slow = slow->next;
+        fast = fast->next->next;
     }
     return slow;
 }
 
 void reverseList1(Node *&list1)
 {
-    Node *prev = NULL, *curr = list1;
+    Node *prev = NULL, *curr = list1, *next = NULL;
 
-    while (curr->next != NULL)
+    while (curr != NULL)
     {
-        Node *next = curr->next;
+        next = curr->next;
         curr->next = prev;
-
         prev = curr;
         curr = next;
     }
+    list1 = prev;     //forget this line
 }
 
-Node *foldAndMerge(Node *head)
+Node *foldAndMerge(Node *head)                      // fold fn ke andr print fn kaam nii krrha h
 {
     //step 1: find middle node
     Node *middle = findMiddle(head);
@@ -65,11 +65,8 @@ Node *foldAndMerge(Node *head)
     Node *temp = list1;
     while (temp != NULL)
     {
-        temp->data = list1->data * list2->data;
+        list1->data = list1->data * list2->data;
         temp = temp->next;
-
-        temp = temp->next;
-        list1 = list1->next;
         list2 = list2->next;
     }
     return list1;
@@ -83,6 +80,7 @@ void print(Node *head)
         cout << temp->data << " ";
         temp = temp->next;
     }
+    cout << endl;
 }
 
 int main()
@@ -97,6 +95,17 @@ int main()
     inserAttail(tail, 5);
     inserAttail(tail, 6);
 
+    cout << "Input List : ";
+    print(head);
+
+    cout << "Middle elem : ";
+    cout << findMiddle(head)->data << endl;
+
+    cout << "Reverse List : ";
+    reverseList1(head);
+    print(head);
+
+    cout << "Folded List : ";
     Node *ans = foldAndMerge(head);
     print(ans);
 

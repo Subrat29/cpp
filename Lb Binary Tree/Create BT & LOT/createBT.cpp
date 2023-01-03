@@ -60,7 +60,30 @@ Node *createTree(Node *root)
 //     }
 // }
 
-void levelorderTraversal(Node *root)      //Output:        //  1
+
+// void levelOrderTraversalOne(Node *root)     //Strange! But this also work and give the same output 
+// {
+//     queue<Node *> q;
+//     q.push(root);
+
+//     while (!q.empty())
+//     {
+//         cout << root->data << " ";
+//         q.pop();
+
+//         if (root->left)
+//         {
+//             levelOrderTraversalOne(root->left);
+//         }
+//         if (root->right)
+//         {
+//             levelOrderTraversalOne(root->right);
+//         }
+//     }
+// }
+
+
+void levelorderTraversal(Node *root)      //Output:        //  1                        // Dry run if not understand video me bhi h end me
 {                                                          //  3 5
     queue <Node*> q;                                       //  7 11 17
     q.push(root);

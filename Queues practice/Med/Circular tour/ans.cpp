@@ -38,7 +38,7 @@ int main()
 {
     petrolPump p[] = { {4,6}, {6,5}, {7,3}, {4,5} };
 
-    // p[] = {{6,4},{6,4},{6,4},{6,4}};          why not initialize like that after declaration??
+    // p[] = {{6,4},{6,4},{6,4},{6,4}};          why not initialize like that after declaration?? It is not right method to declare naveen, sof pr dekh liya h
 
     cout << "size of p: " << sizeof(p) << endl;
     cout << "size of p[0]: " << sizeof(p[0]) << endl;

@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>  //fraz sc O(n),  tc O(1)
-using namespace std; 
+#include <bits/stdc++.h> //fraz sc O(n),  tc O(1)
+using namespace std;
 
 class Node
 {
@@ -35,22 +35,19 @@ void print(Node *head)
 
 Node *reverseList(Node *head)
 {
-    if (head == NULL && head->next == NULL)
+    if (head == NULL || head->next == NULL)              // mistake  use &&
         return head;
 
-    Node *p = NULL, *c = head, *n = c->next;  // previous, current , current ka next
+    Node *prev = NULL, *curr = head, *next = NULL;       // class Node wala next arrow se diffrentiate ho rha h maybe
 
-    while (c != NULL)
+    while (curr != NULL)
     {
-        c->next = p;
-        p = c;
-        c = n;
-        if (n != NULL)
-        {
-            n = n->next;   // Dry Run: if i am not using this then it work but in very last when n = null then n = n->next gives error 
-        }  
+        next = curr->next;
+        curr->next = prev;
+        prev = curr;
+        curr = next;
     }
-    return p;
+    return prev;
 }
 
 int main()
@@ -62,7 +59,7 @@ int main()
     InsertAthead(head, 4);
     print(head);
 
-    //It reverse the original list ans gives us a new head
+    // It reverse the original list ans gives us a new head
     print(reverseList(head));
 
     // print(head);

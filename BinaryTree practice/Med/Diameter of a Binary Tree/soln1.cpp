@@ -17,7 +17,7 @@ public:
     }
 };
 
-Node *createTree(Node *&root)   //I TRY THIS but output: 1 3 5 7 11 17 -1 -1 -1 -1 -1 -1 -1   (-1 is present bc NULL not return)
+Node *createTree(Node *root)
 {
     cout << "Enter data: " << endl;
     int data;
@@ -85,7 +85,7 @@ int height(Node *root)
     return ans;
 }
 
-int diameter(Node *root)
+int diameter(Node *root)                                //TC : O(n^2) bc calling height with diameter
 {
     //base case
     if(root == NULL)
