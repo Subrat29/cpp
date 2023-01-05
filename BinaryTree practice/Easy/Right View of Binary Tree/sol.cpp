@@ -16,7 +16,7 @@ public:
     }
 };
 
-Node *buildTree(Node *root)
+Node *createTree(Node *root)
 {
     cout << "Enter data: " << endl;
     int data;
@@ -28,10 +28,10 @@ Node *buildTree(Node *root)
         return NULL;
     }
 
-    if (root->left)
-        root->left = buildTree(root->left);
-    if (root->right)
-        root->right = buildTree(root->right);
+    // if (root->left)                                    Mistake use this
+        root->left = createTree(root->left);
+    // if (root->right)
+        root->right = createTree(root->right);
 
     return root;
 }
@@ -61,7 +61,7 @@ vector<int> leftView(Node *root)
 int main() // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 {
     Node *root = NULL;
-    root = buildTree(root);
+    root = createTree(root);
 
     vector<int> ans = leftView(root);
 

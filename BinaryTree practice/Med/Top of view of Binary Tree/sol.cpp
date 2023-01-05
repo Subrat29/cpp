@@ -28,9 +28,9 @@ Node *createTree(Node *root)
         return NULL;
     }
 
-    if (root->left)
+    // if (root->left)                                    Mistake use this
         root->left = createTree(root->left);
-    if (root->left)
+    // if (root->right)
         root->right = createTree(root->right);
 
     return root;

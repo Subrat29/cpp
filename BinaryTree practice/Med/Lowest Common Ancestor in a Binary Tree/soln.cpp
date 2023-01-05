@@ -16,7 +16,7 @@ public:
     }
 };
 
-Node *buildTree(Node *root)
+Node *createTree(Node *root)
 {
     cout << "Enter data: " << endl;
     int data;
@@ -28,15 +28,15 @@ Node *buildTree(Node *root)
         return NULL;
     }
 
-    if (root->left)
-        root->left = buildTree(root->left);
-    if (root->right)
-        root->right = buildTree(root->right);
+    // if (root->left)  // mistake
+        root->left = createTree(root->left);
+    // if (root->right)
+        root->right = createTree(root->right);
 
     return root;
 }
 
-Node *lca(Node *root, int n1, int n2)    //lowest common ancestor : lowest means jo anscestor sabse phle aaye not chota.
+Node *lca(Node *root, int n1, int n2)         //lowest common ancestor : lowest means jo anscestor sabse phle aaye not chota.
 {
     // base case
     if (root == NULL)
@@ -70,13 +70,13 @@ Node *lca(Node *root, int n1, int n2)    //lowest common ancestor : lowest means
 int main() // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 {
     Node *root = NULL;
-    root = buildTree(root);
+    root = createTree(root);
+
     int n1 = 7;
     int n2 = 11;
 
-    Node *ans = lca(root, n1, n2);
-    cout << "Ans: " << ans->data << endl;
-    
-    // cout << "Lowest common ancestor: " << lca(root, n1, n2)->data;
+    Node *ans = lca(root, n1, n2);    
+    cout << "Lowest common ancestor: " << lca(root, n1, n2)->data;
+
     return 0;
 }

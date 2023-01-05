@@ -17,7 +17,7 @@ public:
     }
 };
 
-Node *buildTree(Node *root) // build or create a tree
+Node *createTree(Node *root) // build or create a tree
 {
     cout << "Enter data" << endl;
     int data;
@@ -28,10 +28,10 @@ Node *buildTree(Node *root) // build or create a tree
         return NULL;
 
     cout << "Enter data for left of " << data << endl;
-    root->left = buildTree(root->left);
+    root->left = createTree(root->left);
 
     cout << "Enter data for right of " << data << endl;
-    root->right = buildTree(root->right);
+    root->right = createTree(root->right);
 
     return root;
 }
@@ -65,7 +65,7 @@ int main() // 1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
 {
     Node *root = NULL;
 
-    root = buildTree(root);
+    root = createTree(root);
     cout << "No of leaf Nodes are: " << noOfLeafNodes(root) <<endl;
 
     return 0;
