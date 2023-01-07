@@ -39,7 +39,7 @@ void Traversal(Node *root)
     }
 }
 
-void mapping(int in[], map <int, int> nodeToIndex, int n)
+void mapping(int in[], map <int, int> &nodeToIndex, int n)
 {
     for(int i=0; i<n; i++)
     {
@@ -47,20 +47,20 @@ void mapping(int in[], map <int, int> nodeToIndex, int n)
     }
 }
 
-Node *solve(int in[], int pre[], int &Index, int inorderStart, int inorderEnd, int n, map<int, int> &nodeToIndex) // Use &Index
+Node *solve(int in[], int pre[], int &Index, int inorderStart, int inorderEnd, int n, map<int, int> &nodeToIndex) 
 {
     // base case
-    if (Index >= n || inorderStart > inorderEnd)         // i use >= in 2nd case
+    if (Index >= n || inorderStart > inorderEnd)       
     {
         return NULL;
     }
 
-    int element = pre[Index++];                          // Take a elem from Preorder Tree, end me Index ek increase bhi to krna h
+    int element = pre[Index++];                        
     Node *root = new Node(element);
-    int position = nodeToIndex[element];                           // find posn of elem in Inorder Tree
+    int position = nodeToIndex[element];                           
 
     // recursive calls
-    root->left = solve(in, pre, Index, inorderStart, position - 1, n, nodeToIndex);    // i put 0 instead inorderStart but hm hr baar 0 nhi le skte update wala lege
+    root->left = solve(in, pre, Index, inorderStart, position - 1, n, nodeToIndex);  
     
     root->right = solve(in, pre, Index, position + 1, inorderEnd, n, nodeToIndex);
 
