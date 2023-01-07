@@ -35,7 +35,7 @@ Node *createTree(Node *root)
 
 //3 other Types of Traversals 
 
-void inorder(Node *root)
+void inorder(Node *root)   //LNR
 {
     //base case
     if(root == NULL)
@@ -46,7 +46,7 @@ void inorder(Node *root)
     inorder(root->right);
 }
 
-void preorder(Node *root)
+void preorder(Node *root)   //NLR
 {
     //base case
     if(root == NULL)
@@ -57,7 +57,7 @@ void preorder(Node *root)
     preorder(root->right);
 }
 
-void postorder(Node *root)
+void postorder(Node *root)   //LRN
 {
     //base case
     if(root == NULL)
