@@ -16,30 +16,7 @@ public:
     }
 };
 
-void Traversal(Node *root)
-{
-    queue<Node *> q;
-    q.push(root);
-
-    while (!q.empty())
-    {
-        Node *temp = q.front();
-        cout << temp->data << " ";
-        q.pop();
-
-        if (temp->right)
-        {
-            q.push(temp->right);
-        }
-
-        if (temp->left)
-        {
-            q.push(temp->left);
-        }
-    }
-}
-
-void mapping(int in[], map <int, int> &nodeToIndex, int n)
+void mapping(int in[], map <int, int> &nodeToIndex, int n)  
 {
     for(int i=0; i<n; i++)
     {
@@ -57,11 +34,10 @@ Node *solve(int in[], int pre[], int &Index, int inorderStart, int inorderEnd, i
 
     int element = pre[Index++];                        
     Node *root = new Node(element);
-    int position = nodeToIndex[element];                           
+    int position = nodeToIndex[element];
 
     // recursive calls
     root->left = solve(in, pre, Index, inorderStart, position - 1, n, nodeToIndex);  
-    
     root->right = solve(in, pre, Index, position + 1, inorderEnd, n, nodeToIndex);
 
     return root;
@@ -79,15 +55,31 @@ Node *buildTree(int in[], int pre[], int n)
     return ans;
 }
 
+void postorder(Node *root)   //LRN           // Mis: i use simple traversal to print
+{
+    //base case
+    if(root == NULL)
+    return;
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+
 int main()
 {
-    int in[] = {3, 1, 4, 0, 5, 2};
-    int pre[] = {0, 1, 3, 4, 2, 5};
-    int n = 6;
+    // int in[] = {3, 1, 4, 0, 5, 2};     // this case run
+    // int pre[] = {0, 1, 3, 4, 2, 5};    
+    // int n = 6;
 
-    // int in[] = {1,6,8,7};
+    // int in[] = {1,6,8,7};              // this case run
     // int pre[] = {1,6,7,8};
     // int n = 4;
+
+   int in[] = {7, 3, 11, 1, 17, 3, 18};   // this case not run in map bec it has repeated value '3', jisse map dono ka same ho jayega.
+   int pre[] = {1, 3, 7, 11, 3, 17, 18};
+   int n = 7;
+// expected output = 7 11 3 17 18 3 1
 
     cout << "Inorder: ";
     for (int i = 0; i < n; i++)
@@ -105,5 +97,5 @@ int main()
 
     Node *ans = buildTree(in, pre, n);
     cout << "Post order: ";
-    Traversal(ans);
+    postorder(ans);
 }

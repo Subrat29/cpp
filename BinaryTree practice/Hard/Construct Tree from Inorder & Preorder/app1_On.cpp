@@ -17,14 +17,13 @@ public:
     }
 };
 
-int findpos(int in[], int element, int n)  // use pre insted in
+int findpos(int in[], int start, int end, int element)  // use pre instead in
 {
-    for(int i=0; i<n; i++)   //not n-1
+    for(int i=start; i<=end; i++)   //not n-1    // Blunder: for(i=0; i<=n; i++) 
     {
         if(in[i] == element)
         return i;
     }
-    return -1;
 }
 
 Node *solve(int in[], int pre[], int &Index, int inorderStart, int inorderEnd, int n)       // Use &Index
@@ -37,7 +36,7 @@ Node *solve(int in[], int pre[], int &Index, int inorderStart, int inorderEnd, i
     
     int element = pre[Index++];                                                             // Take a elem from Preorder Tree, end me Index ek increase bhi to krna h
     Node *root = new Node(element);
-    int position = findpos(in, element, n);                                                                               // find posn of elem in Inorder Tree
+    int position = findpos(in, inorderStart, inorderEnd, element);                                                 // find posn of elem in Inorder Tree
 
     //recursive calls
     root->left = solve(in, pre, Index, inorderStart, position-1, n);                        //i put 0 instead inorderStart but hm hr baar 0 nhi le skte update wala lege
@@ -53,7 +52,7 @@ Node *buildTree(int in[], int pre[], int n)
     return ans;
 }
 
-void postorder(Node *root)   //LRN
+void postorder(Node *root)   //LRN           // Mis: i use simple traversal to print
 {
     //base case
     if(root == NULL)
