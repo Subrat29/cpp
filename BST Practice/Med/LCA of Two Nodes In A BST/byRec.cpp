@@ -47,8 +47,35 @@ void inputBST(Node *&root)
     }
 }
 
+Node *LCAinaBST(Node *root, Node *P, Node *Q)        // tc: O(N), sc: O(h)
+{
+    //base case 
+    if(root == NULL)
+    {
+        return NULL;
+    }
+
+    if(root->data < P->data && root->data < Q->data)
+    {
+        return LCAinaBST(root->right, P, Q);
+    }
+
+    else if(root->data > P->data && root->data > Q->data)
+    {
+        return LCAinaBST(root->left, P, Q);
+    }
+
+    return root;
+}
+
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
+
     inputBST(root);
+
+    Node *P = root->left->left;
+    Node *Q = root->left;
+
+    cout << "Least common ancestor: " << LCAinaBST(root, P, Q)->data << endl;
 }

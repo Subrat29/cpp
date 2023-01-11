@@ -47,8 +47,45 @@ void inputBST(Node *&root)
     }
 }
 
+void inorder(Node *root, vector<int> &store)
+{
+    if (root == NULL)
+        return;
+
+    inorder(root->left, store);
+
+    cout << root->data << " ";
+
+    store.push_back(root->data);
+
+    inorder(root->right, store);
+}
+
+bool validateBST(Node *root)    // this code run fine on gfg but not in ninja bc uske input 1 2 3 4 -1 -1 -1 aise input hote h
+{
+    vector<int> store;
+    inorder(root, store);
+
+    for (int i = 0; i < store.size() - 1; i++)
+    {
+        if (store[i] > store[i + 1])
+            return false;
+    }
+    return true;
+}
+
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
+
     inputBST(root);
+
+    if (validateBST(root))
+    {
+        cout << endl << "Valid BST";
+    }
+    else
+    {
+        cout << endl << "Not Valid BST";
+    }
 }
