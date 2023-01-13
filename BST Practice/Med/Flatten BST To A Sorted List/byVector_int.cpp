@@ -80,8 +80,58 @@ void lot(Node *root)
     }
 }
 
+void inOrder(Node *root, vector<int> &v)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    inOrder(root->left, v);
+    v.push_back(root->data);
+    inOrder(root->right, v);
+}
+
+Node *flatten(Node *root)              //Ye code studio pr tle nhi mara node wala maar gya sasura pta nhi kyu
+{
+    // 1st step
+    vector<int> v;
+    inOrder(root, v);
+
+    Node *flat = new Node(v[0]);
+    Node *curr = flat;
+
+    // 2nd step
+    for (int i = 1; i < v.size(); i++)
+    {
+        // temp = temp->right;   Not like this
+        // temp->data = v[i];
+        // temp->left = NULL;
+
+        Node *temp = new Node(v[i]);
+
+        curr->left = NULL;
+        curr->right = temp;
+        curr = temp;
+    }
+
+    // 3rd step
+    curr->left = NULL;
+    curr->right = NULL;
+
+    return flat;
+}
+
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
     inputBST(root);
+    cout << "BST: " << endl;
+    lot(root);
+
+    Node *ans = flatten(root);
+    cout << "Flatten BST: " << endl;
+    lot(ans);
+
+    return 0;
 }

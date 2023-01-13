@@ -83,7 +83,7 @@ void lot(Node *root)
     }
 }
 
-void inorder(Node *root)  // LNR
+void inorder(Node *root)  // LNR          //Very Imp: Gives sorted bst
 {
     if(root == NULL)                      //forget this
     return;
@@ -113,7 +113,7 @@ void postorder(Node *root)  // LRN
     cout << root->data << " ";
 }
 
-int main()
+int main()  // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
 
@@ -122,15 +122,17 @@ int main()
     cout << "LevelOrder Traversal: " << endl;
     lot(root);
 
-    cout << "InOrder Traversal: " << endl;
+    cout << endl << "InOrder Traversal: " << endl;
     inorder(root);
-    cout << endl;
+    cout << endl << endl;
 
     cout << "PreOrder Traversal: " << endl;
     preorder(root);
-    cout << endl;
+    cout << endl << endl;
 
     cout << "PostOrder Traversal: " << endl;
     postorder(root);
+    cout << endl << endl;
+
     return 0;
 }

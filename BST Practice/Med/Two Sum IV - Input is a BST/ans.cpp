@@ -47,41 +47,57 @@ void inputBST(Node *&root)
     }
 }
 
-void lot(Node *root)
+void inOrder(Node *root, vector<int> &v)
 {
-    queue<Node *> q;
-    q.push(root);
-    q.push(NULL);
+    if (root == NULL)
+        return;
 
-    while (!q.empty())
+    inOrder(root->left, v);
+    v.push_back(root->data);
+    inOrder(root->right, v);
+}
+
+bool twoSumInBST(Node *root, int target)                         //tc: O(n), sc: O(n)
+{
+    vector<int> v;
+    inOrder(root, v);
+
+    int s = 0;
+    int e = v.size() - 1;
+
+    while (s < e)
     {
-        Node *temp = q.front();
-        q.pop();
+        int sum = v[s] + v[e];
 
-        if (temp == NULL)
+        if(sum == target)
         {
-            cout << endl;
-            if (!q.empty())
-            {
-                q.push(NULL);
-            }
+            return true;
+        }
+
+        else if (sum > target)
+        {
+            e--;
         }
 
         else
         {
-            cout << temp->data << " ";
-
-            if (temp->left)
-                q.push(temp->left);
-
-            if (temp->right)
-                q.push(temp->right);
+            s++;
         }
     }
+
+    return false;
 }
 
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
     inputBST(root);
+
+    int target = 120;
+    twoSumInBST(root, target);
+
+    if (twoSumInBST)
+        cout << "Two sum found" << endl;
+    else
+        cout << "Two sum not found" << endl;
 }
