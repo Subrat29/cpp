@@ -50,7 +50,7 @@ void lot(Node *root)
 }
 
 /*
-Node *solve(vector<int> &preorder, int max, int &i)
+Node *solve(vector<int> &preorder, int max, int &i)               //code Without min term 
 {
     if(i >= preorder.size())
     {
@@ -69,7 +69,7 @@ Node *solve(vector<int> &preorder, int max, int &i)
     return root;
 }
 
-Node *preorderToBST(vector<int> &preorder)         //Tc: O(3n) 3 tim
+Node *preorderToBST(vector<int> &preorder)        
 {
     int max = INT_MAX;
     int i=0;

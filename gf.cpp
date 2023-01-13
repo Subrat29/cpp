@@ -80,8 +80,26 @@ void lot(Node *root)
     }
 }
 
+void inorder(Node *root, vector<int> &v)
+{
+    if (root == NULL)
+        return;
+
+    inorder(root->left, v);
+    v.push_back(root->data);
+    inorder(root->right, v);
+}
+
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
     inputBST(root);
+
+    vector<int> v;
+    inorder(root , v);
+
+    for(int i=0; i<v.size(); i++)
+    {
+        cout << v[i] << " ";
+    }
 }
