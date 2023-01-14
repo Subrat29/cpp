@@ -46,44 +46,67 @@ void inputBST(Node *&root)
         cin >> data;
     }
 }
-
-bool isBST(Node *root, int min, int max)
+//------------------------------------------------------------------------------------------------------------------------------------------------------
+class info
 {
-    //base case
-    if(root == NULL)
+public:
+    //     int mini;
+    //     int maxi;
+    //     int size;
+    //     bool isBST;
+
+    int maxi;
+    int mini; // Note: i rearrange this then it run;
+    bool isBST;
+    int size;
+};
+
+info solve(Node *root, int &ans)
+{
+    // base case
+    if (root == NULL)
     {
-        return true;
+        //  return {INT_MIN, INT_MAX, 0, true};
+        return {INT_MIN, INT_MAX, true, 0};
     }
 
-    if(root->data > min && root->data < max)
+    info left = solve(root->left, ans);
+    info right = solve(root->right, ans);
+
+    info currNode;
+    currNode.size = left.size + right.size + 1;
+    currNode.maxi = max(root->data, right.maxi);
+    currNode.mini = min(root->data, left.mini);
+
+    // if (left.isBST && right.isBST && (root->data > left.mini && root->data < right.maxi))   // mistake
+    if (left.isBST && right.isBST && (root->data > left.maxi && root->data < right.mini))
     {
-        bool left = isBST(root->left, min, root->data);
-        bool right = isBST(root->right, root->data, max);
-        return left && right;
+        currNode.isBST = true;
     }
     else
     {
-        return false;
+        currNode.isBST = false;
     }
+
+    if (currNode.isBST)
+    {
+        ans = max(ans, currNode.size);
+    }
+
+    return currNode;
 }
 
-bool validateBST(Node *root)    
+int findLargestBST(Node *root)
 {
-    return isBST(root, INT_MIN, INT_MAX);
+    int maxSize = 0;
+    info temp = solve(root, maxSize);
+    return maxSize;
 }
 
 int main() // 50 20 10 30 70 90 110 -1
 {
     Node *root = NULL;
-
     inputBST(root);
 
-    if (validateBST(root))
-    {
-        cout << "Valid BST";
-    }
-    else
-    {
-        cout << "Not Valid BST";
-    }
+    cout << "Size of BST: " << findLargestBST(root);
 }
