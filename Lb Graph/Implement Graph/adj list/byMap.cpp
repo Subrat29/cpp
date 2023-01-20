@@ -4,7 +4,9 @@ using namespace std;
 class graph
 {
 public:
-    unordered_map<int, list<int>> adj;
+
+    // unordered_map<int, list<int>> adj;  it gives nonsequencial output
+    map<int, list<int>> adj;
 
     void addEdge(int u, int v, bool direction) // dir = 0, Undirected graph && dir = 1, directed graph
     {
@@ -46,9 +48,9 @@ int main()
         cin >> u >> v;
         g.addEdge(u, v, 0); // creating an undirected graph
     }
-    
+
     cout << endl;
-    g.print();      // printing graph
+    g.print(); // printing graph
 
     return 0;
 }

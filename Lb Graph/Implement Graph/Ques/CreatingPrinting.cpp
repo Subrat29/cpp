@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>  //Codestudio
-#include <vector>
+using namespace std;     //forgot this
 
 vector<vector<int>> printAdjacency(int n, int m, vector<vector<int>> &edges)
 {

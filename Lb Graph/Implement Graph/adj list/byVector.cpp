@@ -6,8 +6,7 @@ int main()
     int vertex = 5;
     int edges = 6;
 
-    // vector<int> g[vertex];           // Doubts: why take vertex+1 bc yha vertex 0 nhi lere na
-    vector<int> g[vertex+1];            // rows define but columns not define bc col me pta nii kitne node aa jaye
+    vector<int> g[vertex];            // rows define but columns not define bc col me pta nii kitne node aa jaye
 
 // vector<int> V[] is an array of vectors.
 // vector< vector<int> > V is a vector of vectors.
