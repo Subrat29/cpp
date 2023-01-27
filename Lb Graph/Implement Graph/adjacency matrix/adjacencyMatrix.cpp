@@ -2,7 +2,6 @@
 using namespace std;
 
 int vertArr[20][20]; // the adjacency matrix initially 0
-int count = 0;
 
 void displayMatrix(int v)
 {

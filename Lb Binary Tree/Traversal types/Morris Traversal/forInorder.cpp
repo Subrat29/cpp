@@ -54,7 +54,7 @@ void morrisTraversal(Node *root)
 
         else
         {
-            // Find the inorder predecessor of current
+                                                                            // Find the inorder "PREDECESSOR" of current  , pred is ek left jao phir right jate jao jabtak null na mil jaye sasur.
             pred = current->left;
             while (pred->right != NULL && pred->right != current)
             {

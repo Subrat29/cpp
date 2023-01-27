@@ -94,12 +94,12 @@ int rightMinVal(Node *root)
     return temp->data;
 }
 
-Node *deleteFromBST(Node *root, int x)                   //tc = O(h), wc: O(n)   // del code is very imp for interview
+Node *deleteFromBST(Node *root, int x)                   //tc = O(h), sc: O(n)   // del code is very imp for interview
 { 
     // base case
     if (root == NULL)
     {
-        return root; // not null
+        return root; // not null   //why??
     }
 
     if (root->data == x)
@@ -138,7 +138,7 @@ Node *deleteFromBST(Node *root, int x)                   //tc = O(h), wc: O(n)  
         if (root->left != NULL && root->right != NULL)
         {
             // step1: find mini
-            int mini = rightMinVal(root->right);
+            int mini = rightMinVal(root->right);                 //but why need min in right part bst me to phle se hi sort hua hote h seedhe root ka right kyu nii uthaya??
 
             // step2: copy mini
             root->data = mini;

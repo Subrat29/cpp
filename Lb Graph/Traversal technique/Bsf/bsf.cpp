@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include <bits/stdc++.h> 
 void preparedAdjList(unordered_map<int, set<int>> &adjList, vector<pair<int, int>> edges)
 {
     // Traverse all edges
@@ -41,7 +40,7 @@ void bfs(unordered_map<int, set<int>> &adjList, unordered_map<int, bool> &visite
     }
 }
 
-vector<int> BFS(int vertex, vector<pair<int, int>> edges) // ye edges di h pair me to kyu adjlist nikal rhe h ??
+vector<int> BFS(int vertex, vector<pair<int, int>> edges) // ye edges di h pair me to kyu adjlist nikal rhe h ??  given like: 1-2, 2-3, 0-1, pair me isliye h
 {
     unordered_map<int, set<int>> adjList;
     vector<int> ans;
@@ -49,7 +48,7 @@ vector<int> BFS(int vertex, vector<pair<int, int>> edges) // ye edges di h pair 
 
     preparedAdjList(adjList, edges);
 
-    // traverse all components of a graph (use loop bc including disconnecting graph)
+    // traverse all components of a graph (use loop bc including disconnecting graph varna direct bfs call hoti maam)
     for (int i = 0; i < vertex; i++)
     {
         if (!visited[i])

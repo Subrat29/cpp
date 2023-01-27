@@ -40,7 +40,7 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges)
     {
         if (!visited[i])
         {
-            vector<int> component;
+            vector<int> component;                    //ye sasur compo ku le liya h
             dfs(i, visited, adj, component);
             ans.push_back(component);
         }
