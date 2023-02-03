@@ -15,10 +15,12 @@ public:
 
     void insert(int val)
     {
+        //step1: insert at end
         size = size + 1;
         int index = size;
         arr[index] = val;
 
+        //step2: take it to its correct posn
         while (index > 1)
         {
             int parent = index / 2;
@@ -35,7 +37,7 @@ public:
         }
     }
 
-    void deletion()
+    void deletion()  //deletion me root node delete ho jayegi
     {
         if (size == 0)
         {
