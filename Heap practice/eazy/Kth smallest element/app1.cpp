@@ -37,12 +37,14 @@ void heapsort(int arr[], int n)
     }
 }
 
-int kthSmallest(int arr[], int l, int r, int k) // tc = O(nlogn);
+int kthSmallest(int arr[], int l, int r, int k)  // tc = O(nlogn);
 {
-    int doubt = (r/2)-1;     // ye kyu run ho rha h????
-    // int doubt = r/2;
+    
+    // int doubt = (r / 2) - 1;   // By me: not run in this input, it lack for some input bc size phle se size-1 diya if we did -1 then it wrong.
+    int doubt = r / 2;            // thats why it run
 
-    for (int i = doubt; i >= 0; i--)
+
+    for (int i = doubt; i >= 0; i--)    // tc: O(n) for building heap
     {
         heapify(arr, r, i);
     }
@@ -54,14 +56,15 @@ int kthSmallest(int arr[], int l, int r, int k) // tc = O(nlogn);
 
 int main()
 {
-    int arr[] = {571, 600, 134, 32, 52, 376};
+    int arr[] = {571, 600, 134, 32, 52, 376, 108, 29, 500, 533, 684, 422};
     // int arr[] = {54, 53, 55, 52, 50};
+
     int size = sizeof(arr) / sizeof(int);
-
     int r = size - 1;
-    int k = 4;
+    int k = 7;
 
-    cout << "Before: ";
+    cout << endl
+         << "Before: ";
     for (int i = 0; i <= r; i++)
     {
         cout << arr[i] << " ";
@@ -75,7 +78,8 @@ int main()
     {
         cout << arr[i] << " ";
     }
-    cout << endl;
+    cout << endl
+         << endl;
 
     return 0;
 }

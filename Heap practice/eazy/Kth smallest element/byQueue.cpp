@@ -1,7 +1,7 @@
 #include <bits/stdc++.h> // ImpNote: Maxheap ka use krke smallest elem nikal skte h Minheap ka use krke largest elem
 using namespace std;
 
-int kthSmallest(int arr[], int l, int r, int k)
+int kthSmallest(int arr[], int l, int r, int k)  //ok but i dont understand deep reason why this logic run even after dry run??
 {
     // step1: create a maxheap
     priority_queue<int> pq;

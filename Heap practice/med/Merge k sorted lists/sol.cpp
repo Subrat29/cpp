@@ -7,6 +7,8 @@ public:
     int data;
     Node *next;
 };
+
+//create custom comprator // i dont know what is this hehehe??
 class compare
 {
 public:
@@ -15,37 +17,44 @@ public:
         return a->data > b->data;
     }
 };
+
 Node<int> *mergeKLists(vector<Node<int> *> &listArray)
 {
-    priority_queue<Node<int> *, vector<Node<int> *>, compare> minheap;
+    priority_queue<Node<int> *, vector<Node<int> *>, compare> minHeap;
+
     int k = listArray.size();
+
     if (k == 0)
         return NULL;
+
     Node<int> *head = NULL;
     Node<int> *tail = NULL;
-    // creating k heap with the head of k given Linked List
+
+    // step1: creating k heap with the head of k given Linked List
     for (int i = 0; i < k; i++)
     {
-        Node<int> *temp = listArray[i];
-        if (temp != NULL)
-            minheap.push(temp);
-    }
-    while (minheap.size() > 0)
-    {
-        Node<int> *top = minheap.top();
-        minheap.pop();
-        if (top->next != NULL)
+        if (listArray[i] != NULL)
         {
-            minheap.push(top->next);
+            minHeap.push(listArray[i]);
         }
-        // checking if its the 1st most element
-        if (head == NULL)
+    }
+
+    while (minHeap.size() > 0)
+    {
+        Node<int> *top = minHeap.top();
+        minHeap.pop();
+
+        if (top->next != NULL)     //mis: top to tail
+        {
+            minHeap.push(top->next);
+        }
+
+        if (head == NULL) // checking if its the 1st most element
         {
             head = top;
             tail = top;
         }
-        // for rest of elements
-        else
+        else // for rest of elements
         {
             tail->next = top;
             tail = top;
@@ -56,5 +65,6 @@ Node<int> *mergeKLists(vector<Node<int> *> &listArray)
 
 int main()
 {
+
     return 0;
 }

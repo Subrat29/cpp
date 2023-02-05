@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void heapify(int arr[], int n, int i)
-{
+void heapify(int arr[], int n, int i) // tc: O(nlogn)
+{ 
     int largest = i;
     int leftChild = 2 * largest;
     int rightChild = 2 * largest + 1;
@@ -24,7 +24,7 @@ void heapify(int arr[], int n, int i)
     }
 }
 
-int main()
+int main()  //for 1 based indexing
 {
     int arr[6] = {-1, 54, 53, 55, 52, 50};
     int n = 5;
@@ -38,7 +38,7 @@ int main()
     cout << endl;
 
     //heapify algo
-    for (int i = n / 2; i > 0; i--)
+    for (int i = n / 2; i > 0; i--)  // tc: O(n) for building heap
     {
         heapify(arr, n, i);
     }
