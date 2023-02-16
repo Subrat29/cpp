@@ -21,6 +21,8 @@ public:
     }
 };
 
+
+
 class Trie
 {
 public:
@@ -31,6 +33,8 @@ public:
     {
         root = new TrieNode('\0');
     }
+
+
 
     // INSERTION tc-> O(l) l: len of word
     void insertUtil(TrieNode *root, string word)
@@ -67,6 +71,8 @@ public:
         insertUtil(root, word);
     }
 
+
+
     // SEARCH tc-> O(l)
     bool searchUtil(TrieNode *root, string word)
     {
@@ -99,6 +105,8 @@ public:
         return searchUtil(root, word);
     }
 
+
+
     // DELETION tc -> O(l)
     void Delete(TrieNode *root, string word)
     {
@@ -129,6 +137,8 @@ public:
     }
 };
 
+
+
 int main()
 {
     Trie *t = new Trie();
@@ -137,6 +147,8 @@ int main()
     t->insertWord("RAMAN");
     t->insertWord("TIME");
     t->insertWord("DO");
+
+
 
     // searching
     string word = "RAMAN";
@@ -148,6 +160,8 @@ int main()
     {
         cout << "Word not found" << endl;
     }
+
+
 
     // deletion
     cout << "After deletion " << endl;
