@@ -1,15 +1,20 @@
-#include <bits/stdc++.h>  // linear tc, sc
-using namespace std; // ye sasur adj list ki kya jarurat h seedhe graph ko traverse ku ni krte, visited map banakr.
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+ // linear tc, sc
+ // ye sasur adj list ki kya jarurat h seedhe graph ko traverse ku ni krte, visited map banakr.
 
 void dfs(int node, unordered_map<int, bool> &visited, unordered_map<int, list<int>> &adj, vector<int> &component)
 {
-    //ans store
+    //step1: store node in compo
     component.push_back(node);
 
-    //mark visited
+    //step2: mark visited
     visited[node] = true;
 
-    // recursive call for every connected node
+    //step3: recursive call for every connected node
     for (auto i : adj[node])
     {
         if (!visited[i])
@@ -35,7 +40,7 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges)
     vector<vector<int>> ans;
     unordered_map<int, bool> visited;
 
-    // for all nodes call dfs, if not visited
+    // for all nodes call dfs, if not visited, and use for loop bc if disconnected component present
     for (int i = 0; i < V; i++)
     {
         if (!visited[i])

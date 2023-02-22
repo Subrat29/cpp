@@ -1,4 +1,8 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+#include <set>
+#include <queue>
 using namespace std;
 
 void preparedAdjList(unordered_map<int, set<int>> &adjList, vector<pair<int, int>> edges)
@@ -16,19 +20,21 @@ void preparedAdjList(unordered_map<int, set<int>> &adjList, vector<pair<int, int
 
 void bfs(unordered_map<int, set<int>> &adjList, unordered_map<int, bool> &visited, vector<int> &ans, int node)
 {
+    //step1 : create a queue & push node in it & also mark visited true
     queue<int> q;
     q.push(node);
     visited[node] = true;
 
     while (!q.empty())
     {
+        //step2 : frontnode nikalo
         int frontNode = q.front();
         q.pop();
 
-        // store frontNode into ans
+        // step3: store frontNode into ans
         ans.push_back(frontNode);
 
-        // traverse all neighbours of frontNode
+        // step4: traverse all neighbours of frontNode and psuh in queue if not visited & also mark visited true
         for (auto i : adjList[frontNode])
         {
             if (!visited[i])
