@@ -1,10 +1,11 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
 using namespace std;
 
 int main()
 {
-    //creation of queues
-    queue <int> q;
+    // creation of queues
+    queue<int> q;
 
     q.push(1);
     cout << "Front of q is : " << q.front() << endl;
@@ -21,7 +22,7 @@ int main()
 
     cout << "size: " << q.size() << endl;
 
-    if(q.empty())
+    if (q.empty())
     {
         cout << "Empty" << endl;
     }
@@ -29,6 +30,6 @@ int main()
     {
         cout << "Not empty" << endl;
     }
-    
+
     return 0;
 }

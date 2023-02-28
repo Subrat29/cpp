@@ -2,6 +2,13 @@
     "files.associations": {
         "unordered_map": "cpp",
         "stack": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "limits": "cpp",
+        "algorithm": "cpp",
+        "list": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp",
+        "iostream": "cpp",
+        "xstring": "cpp"
     }
 }

@@ -1,5 +1,7 @@
-#include <bits/stdc++.h> // if there is a 0 base indexing then do this
+#include<iostream> 
 using namespace std;
+
+// if there is a 0 base indexing then do this
 
 void heapify(int arr[], int n, int i)
 {

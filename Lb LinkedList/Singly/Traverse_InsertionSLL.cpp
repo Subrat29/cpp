@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class Node
@@ -47,7 +47,7 @@ class Node
 
         Node*temp = head;
         int cnt = 1;
-        while (cnt < position-1)
+        while (cnt < position-1)  //see copy
         {
             temp = temp->next;
             cnt++;

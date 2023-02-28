@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class Queue
@@ -36,6 +36,7 @@ public:
     {
         if(qfront == rear)
         {
+            cout << "Empty queue";
             return -1;
         }
         else
@@ -56,6 +57,7 @@ public:
     {
         if(qfront == rear)
         {
+            cout << "Empty queue";
             return -1;
         }
         else
@@ -76,12 +78,36 @@ public:
         }
     }
 
-
+    void print()
+    {
+        for(int i=rear-1; i>=0; i--)
+        {
+            cout << arr[i] << " ";
+        }
+        cout << endl;
+    }
 
 };
 
 int main()
 {
+    Queue q;
+
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+
+    q.print();
+
+    q.dequeue();
+    q.print();
+
+    q.dequeue();
+    q.print();
+
+    q.dequeue();
+    q.print();
 
     return 0;
 }

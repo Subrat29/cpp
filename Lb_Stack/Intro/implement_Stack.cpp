@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class Stack
@@ -15,7 +15,7 @@ public:
     Stack(int size)
     {
         this->size = size;
-        arr = new int(size);  // arr = new int[s];  also correct??
+        arr = new int[size];          // arr = new int(size); it is wrong gives error
         top = -1;
     }
 

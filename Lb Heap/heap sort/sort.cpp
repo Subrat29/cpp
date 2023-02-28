@@ -1,5 +1,9 @@
-#include <bits/stdc++.h> //Heap sort when max heap is given
+#include <iostream>
 using namespace std;
+
+// Heap sort when max heap is given
+// Time Complexity: O(N log N)
+// Auxiliary Space: O(1)
 
 void heapify(int arr[], int n, int i)
 {
@@ -36,6 +40,8 @@ void heapSort(int arr[], int n)
 
         // step2: take it to its correct posn
         heapify(arr, size, 1);
+
+        // 55 53 54 52 50  (swap)--> 50 53 54 52 55  (size-- now,heapify on it)--> 50 53 54 52    etc
     }
 }
 
@@ -44,13 +50,20 @@ int main()
     int arr[6] = {-1, 54, 53, 55, 52, 50};
     int n = 5;
 
+    cout << "Given Array: ";
+    for (int i = 1; i <= n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
     // heap creation                         // ise htane ke baad wrong aayega bc ye max heap create krega jiske top pr max elem hoga, vo chahiye hi
     for (int i = n / 2; i > 0; i--)
     {
         heapify(arr, n, i);
     }
 
-    cout << "Before sorting: ";
+    cout << "After Heapify: ";
     for (int i = 1; i <= n; i++)
     {
         cout << arr[i] << " ";

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include <deque>
 using namespace std;
 
 int main()

@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#include<map>
 using namespace std;
 
 class Node
@@ -33,7 +34,7 @@ void insertion(Node *&tail, int element, int d)   // insertion kisi elem ke beha
     if (tail == NULL)
     {
         Node *newNode = new Node(d);
-        tail = newNode;                   
+        tail = newNode;                   // why not said this tail...head = tail
         newNode->next = newNode;
     }
     else

@@ -1,7 +1,9 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
-void heapify(int arr[], int n, int i) // tc: O(nlogn)
+// tc: O(nlogn)
+
+void heapify(int arr[], int n, int i) 
 { 
     int largest = i;
     int leftChild = 2 * largest;
@@ -24,7 +26,8 @@ void heapify(int arr[], int n, int i) // tc: O(nlogn)
     }
 }
 
-int main()  //for 1 based indexing
+//for 1 based indexing
+int main()  
 {
     int arr[6] = {-1, 54, 53, 55, 52, 50};
     int n = 5;

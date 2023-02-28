@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class Node
@@ -107,7 +107,7 @@ void InsertAtposittion(Node *&head, Node *&tail, int position, int d)
     // Creating a node for d
     Node *nodeToInsert = new Node(d);
 
-    nodeToInsert->next = temp->next;
+    nodeToInsert->next = temp->next;            //sequence may be change but carefully it not effect the next step
     nodeToInsert->prev = temp;
     temp->next = nodeToInsert;
     temp->next->prev = nodeToInsert;

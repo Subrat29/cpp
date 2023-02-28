@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 class Node
@@ -75,6 +75,7 @@ void deleteNode(int position, Node *&head)
         }
 
         prev->next = curr->next;
+        // curr->next->prev = prev; why this not add
         curr->next = NULL;
         curr->prev = NULL;
         delete curr;
