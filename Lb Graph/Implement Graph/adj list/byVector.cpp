@@ -1,18 +1,23 @@
 // #include <bits/stdc++.h>
-#include<iostream>
-#include<vector>
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    int vertex = 5; //node
+    int vertex = 5; // node
     int edges = 6;
 
-    vector<int> g[vertex];            // rows define but columns not define bc col me pta nii kitne node aa jaye
-    // vector<int> g[5];            
+    // vector<int> g(vertex);
+    // vector<int> g[vertex];
+    vector<int> g[5];
 
-// vector<int> V[] is an array of vectors.
-// vector< vector<int> > V is a vector of vectors.
+    // why these above not defined
+
+    // rows define but columns not define bc col me pta nii kitne node aa jaye
+
+    // vector<int> V[] is an array of vectors.
+    // vector< vector<int> > V is a vector of vectors.
 
     cout << "Enter edges" << endl;
 
@@ -24,7 +29,6 @@ int main()
         g[v].push_back(u);
     }
     cout << endl;
-    
 
     for (int i = 0; i < vertex; i++)
     {

@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int n)
+//last part remove in every round
+
+void bubbleSort(int arr[], int n) 
 {
-    for (int i = 1; i < n; i++) // n-1 rounds
+    for (int i = 1; i < n; i++) // n-1 rounds // use only for no. of rounds
     {
         for (int j = 0; j < n - i; j++)
         {

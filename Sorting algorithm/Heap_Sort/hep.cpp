@@ -49,8 +49,8 @@ int main()
 {
     // int arr[] = {4, 5, 4, 3, 2, 1, 4, 3, 4, 3, 4, 3, 4, 5, 5, 6, 4, 4, 44 ,4, 2, 4};
 
-    int arr[6] = {-1, 54, 53, 55, 52, 50};
-    int n = sizeof(arr)/sizeof(int);
+    int arr[] = {-1, 54, 53, 55, 52, 50};
+    int n = sizeof(arr)/sizeof(int)-1;
 
     cout << "Given Array: ";
     for (int i = 1; i <= n; i++)

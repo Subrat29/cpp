@@ -40,7 +40,7 @@ public:
         }
         else
         {
-            arr[qfront] = -1;
+            // arr[qfront] = -1;
             qfront ++;
             if(qfront == rear)
             {

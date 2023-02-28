@@ -41,7 +41,6 @@ public:
 
 		while (temp != NULL)
 		{
-			if(temp != NULL)
 			cout << temp->data << " ";
 			temp = temp->next;
 		}

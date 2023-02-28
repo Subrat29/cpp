@@ -58,7 +58,7 @@ void print(Node *tail)
     Node *temp = tail;
 
     // empty list
-    if (tail == NULL)
+    if (temp == NULL)
     {
         cout << "List is empty" << endl;
         return;
@@ -66,9 +66,9 @@ void print(Node *tail)
 
     do
     {
-        cout << tail->data << " ";
-        tail = tail->next;
-    } while (tail != temp);
+        cout << temp->data << " ";
+        temp = temp->next;
+    } while (temp != tail);
 
     cout << endl;
 }

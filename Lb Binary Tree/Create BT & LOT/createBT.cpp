@@ -16,7 +16,7 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-};
+}; 
 
 Node *createTree(Node *root)
 {

@@ -45,7 +45,7 @@ vector<vector<int>> depthFirstSearch(int V, int E, vector<vector<int>> &edges)
     {
         if (!visited[i])
         {
-            vector<int> component;                    //ye sasur compo ku le liya h
+            vector<int> component;                    //ye sasur compo ku le liya h... 4 disonnected graph has many compo
             dfs(i, visited, adj, component);
             ans.push_back(component);
         }
