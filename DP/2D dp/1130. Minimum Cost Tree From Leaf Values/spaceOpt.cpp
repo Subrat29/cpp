@@ -1,0 +1,1 @@
+// optimum aproach by using stack in O(n)
