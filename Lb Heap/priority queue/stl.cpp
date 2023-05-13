@@ -22,8 +22,7 @@ int main()
 
 //----------------------------------------------------------------------------------------------------
 
-    cout << endl
-         << "Min Heap" << endl;
+    cout << endl << "Min Heap" << endl;
     priority_queue<int, vector<int>, greater<int>> minHeap; // min heap
 
     minHeap.push(2);
