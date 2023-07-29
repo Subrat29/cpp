@@ -34,7 +34,7 @@ void bfs(unordered_map<int, set<int>> &adjList, unordered_map<int, bool> &visite
         // step3: store frontNode into ans
         ans.push_back(frontNode);
 
-        // step4: traverse all neighbours of frontNode and psuh in queue if not visited & also mark visited true
+        // step4: traverse all neighbours of frontNode and push in queue if not visited & also mark visited true
         for (auto i : adjList[frontNode])
         {
             if (!visited[i])
