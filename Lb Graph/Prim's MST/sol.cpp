@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
  
-//tc O(n^2)  --> it optimize by using priority and then tc O(nlogn) in line 46 - 54 we find minimum, we replace it by using pq
+//tc O(n^2)  --> it optimize by using priority queue and then tc O(nlogn) in line 46 - 54 we find minimum, we replace it by using pq
 
 //it shows this <u, v, w>
 vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pair<int, int>, int>> &g)
