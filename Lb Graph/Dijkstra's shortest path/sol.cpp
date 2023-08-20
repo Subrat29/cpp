@@ -4,8 +4,8 @@
 #include <unordered_map>
 using namespace std;
 
-//tc O(e logv)  e = edge, v = vertices
-//sc O(v+e)
+// tc O(e logv)  e = edge, v = vertices
+// sc O(v+e)
 
 vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int source)
 {
