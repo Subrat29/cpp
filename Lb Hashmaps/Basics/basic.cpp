@@ -20,7 +20,7 @@ int main()
     // 3
     m["mera"] = 1;
 
-    // Update ho jayegi key ki entry to 2, not new create bc every key corresponds single value only
+    // Update ho jayegi key ki entry to 6, not new create bc every key corresponds single value only
     m["mera"] = 6;
 
 

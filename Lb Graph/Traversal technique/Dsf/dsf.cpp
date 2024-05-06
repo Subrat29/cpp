@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
+#include <list>
 using namespace std;
 
  // linear tc, sc

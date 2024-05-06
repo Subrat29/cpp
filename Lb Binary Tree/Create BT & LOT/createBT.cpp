@@ -1,6 +1,6 @@
 // #include <bits/stdc++.h>
-#include<iostream>
-#include<queue>
+#include <iostream>
+#include <queue>
 using namespace std;
 
 class Node
@@ -16,7 +16,7 @@ public:
         this->left = NULL;
         this->right = NULL;
     }
-}; 
+};
 
 Node *createTree(Node *root)
 {
@@ -62,8 +62,7 @@ Node *createTree(Node *root)
 //     }
 // }
 
-
-// void levelOrderTraversalOne(Node *root)     //Strange! But this also work and give the same output 
+// void levelOrderTraversalOne(Node *root)     //Strange! But this also work and give the same output
 // {
 //     queue<Node *> q;
 //     q.push(root);
@@ -84,10 +83,9 @@ Node *createTree(Node *root)
 //     }
 // }
 
-
-void levelorderTraversal(Node *root)      //Output:        //  1                        // Dry run if not understand video me bhi h end me
-{                                                          //  3 5
-    queue <Node*> q;                                       //  7 11 17
+void levelorderTraversal(Node *root) // Output:        //  1                        // Dry run if not understand video me bhi h end me
+{                                    //  3 5
+    queue<Node *> q;                 //  7 11 17
     q.push(root);
     q.push(NULL); // seperator for LOT
 
@@ -96,13 +94,13 @@ void levelorderTraversal(Node *root)      //Output:        //  1                
         Node *temp = q.front();
         q.pop();
 
-        //Aur jese hi seperator mil jaye to ENTER maar do
+        // Aur jese hi seperator mil jaye to ENTER maar do
 
-        if (temp == NULL)     //purana level complete traverse ho chuka h
+        if (temp == NULL) // purana level complete traverse ho chuka h
         {
             cout << endl;
 
-            if (!q.empty())   //queue still have some child nodes
+            if (!q.empty()) // queue still have some child nodes
             {
                 q.push(NULL);
             }

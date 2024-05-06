@@ -1,4 +1,5 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <queue>
 using namespace std;
 
 class Node
@@ -44,35 +45,33 @@ void morrisTraversal(Node *root)
     }
 
     current = root;
-    while (current != NULL) 
+    while (current != NULL)
     {
         if (current->left == NULL)
         {
             cout << current->data << " ";
-            current = current->right;       // mis use left
+            current = current->right; // mis use left
         }
-
         else
         {
-                                                                            // Find the inorder "PREDECESSOR" of current  , pred is ek left jao phir right jate jao jabtak null na mil jaye sasur.
+            // Find the inorder "PREDECESSOR" of current  , pred is ek left jao phir right jate jao jabtak null na mil jaye sasur.
             pred = current->left;
             while (pred->right != NULL && pred->right != current)
             {
-                pred = pred->right;                                         // why we change pred now to line 55 --> for understand go to video or dry run 
+                pred = pred->right; // why we change pred now to line 55 --> for understand go to video or dry run
             }
-        }
 
-        if (pred->right == NULL)
-        {
-            pred->right = current;
-            current = current->left;
-        }
-
-        else
-        {
-            pred->right = NULL;
-            cout << current->data << " ";
-            current = current->right;
+            if (pred->right == NULL)
+            {
+                pred->right = current;
+                current = current->left;
+            }
+            else
+            {
+                pred->right = NULL;
+                cout << current->data << " ";
+                current = current->right;
+            }
         }
     }
 }

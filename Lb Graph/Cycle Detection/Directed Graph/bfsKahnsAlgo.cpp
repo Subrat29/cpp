@@ -59,6 +59,12 @@ int detectCycleInDirectedGraph(int n, vector<pair<int, int>> &edges) // n = no. 
         return true;
 }
 
+/*
+In summary, the in-degree vector helps in identifying nodes that are part of a cycle because they will never have
+their in-degrees reduced to zero. If, after processing all nodes, the count is less than the number of nodes,
+a cycle is confirmed to be present in the directed graph.
+*/
+
 int main()
 {
 
